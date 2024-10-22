@@ -1,13 +1,13 @@
 import { $axios } from '../api'
 
 export const WeatherService = async (city: string) => {
-	const key = '115adbefe86a4b4389f160147241610'
+	const key = import.meta.env.VITE_APP_API_KEY
 	const days = 7
 
 	try {
-		const { data } = await $axios.get(`forecast.json?q=${city}`, {
-			params: { key, days }
-		})
+		const { data } = await $axios.get(
+			`v1/forecast.json?q=${city}&key=${key}&days=${days}`
+		)
 
 		return data
 	} catch (error) {

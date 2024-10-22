@@ -4,13 +4,14 @@ import { Layout } from '../components/layout/Layout'
 
 import { FavoritesPage } from '../pages/favorites/FavoritesPage'
 import { HomePage } from '../pages/home/HomePage'
+import { NotFound } from '../pages/notFound/NotFound'
 import { WeatherPage } from '../pages/weather/WeatherPage'
 
 export const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <Layout />,
-		errorElement: <div>Error 404</div>,
+		errorElement: <NotFound />,
 		children: [
 			{
 				path: '/',
@@ -28,6 +29,6 @@ export const router = createBrowserRouter([
 	},
 	{
 		path: '*',
-		element: <div>Error 404</div>
+		element: <NotFound />
 	}
 ])

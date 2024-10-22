@@ -20,7 +20,7 @@ export const Form = () => {
 		formState: { errors }
 	} = useForm<IInputs>({ mode: 'onChange' })
 
-	const { mutate, error } = useMutation({
+	const { mutate, error, isPending } = useMutation({
 		mutationFn: (city: string) => WeatherService(city),
 		onSuccess: data => {
 			navigate('/weather', { state: { data } })
@@ -34,14 +34,21 @@ export const Form = () => {
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-			<input
-				className={styles.form__input}
-				placeholder='Введите город'
-				{...register('city', {
-					required: { value: true, message: 'Это обязательное поле' }
-				})}
-			/>
-			<button className={styles.form__button}></button>
+			{isPending ? (
+				<span>Loading...</span>
+			) : (
+				<>
+					<input
+						className={styles.form__input}
+						placeholder='Введите город'
+						{...register('city', {
+							required: { value: true, message: 'Это обязательное поле' }
+						})}
+					/>
+
+					<button className={styles.form__button}></button>
+				</>
+			)}
 			{errors.city && (
 				<span className={styles.form__error}>{errors.city.message}</span>
 			)}

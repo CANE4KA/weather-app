@@ -35,11 +35,13 @@ export const WeatherCard: FC<IWeatherCard> = ({ data, city }) => {
 				<img src={data.day.condition.icon} alt='condition' />
 				{cityList.includes(city) ? (
 					<MdFavorite
+						className={styles.favorite}
 						fontSize={25}
 						onClick={() => dispatch(deleteAction(city))}
 					/>
 				) : (
 					<MdFavoriteBorder
+						className={styles.favorite}
 						fontSize={25}
 						onClick={() => dispatch(addAction(city))}
 					/>

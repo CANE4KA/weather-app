@@ -1,0 +1,11 @@
+.favorites_item {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.city,
+.delete {
+	font-size: 25px;
+	cursor: pointer;
+}

@@ -1,12 +1,10 @@
 import axios from 'axios'
 
-const BASE_URL = 'https://api.weatherapi.com/v1'
-
 export const $axios = axios.create({
-	baseURL: BASE_URL,
+	baseURL: import.meta.env.VITE_APP_BASE_URL,
 	headers: {
 		'Content-Type': 'application/json',
 		'Access-Control-Allow-Origin': '*',
-		'Access-Control-Allow-Methods': 'GET'
+		'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
 	}
 })
