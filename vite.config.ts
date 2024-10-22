@@ -4,5 +4,5 @@ import { defineConfig } from 'vite'
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [react()],
-	base: 'https://cane4ka.github.io/weather-app'
+	base: '/weather-app'
 })

@@ -15,14 +15,17 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				path: '/weather-app',
+				errorElement: <NotFound />,
 				element: <HomePage />
 			},
 			{
 				path: '/weather-app/weather',
+				errorElement: <NotFound />,
 				element: <WeatherPage />
 			},
 			{
 				path: '/weather-app/favorites',
+				errorElement: <NotFound />,
 				element: <FavoritesPage />
 			}
 		]
