@@ -20,7 +20,7 @@ export const FavoritesItem: FC<IFavoritesItem> = ({ city }) => {
 	const { mutate, isPending } = useMutation({
 		mutationFn: (city: string) => WeatherService(city),
 		onSuccess: data => {
-			navigate('/weather', { state: { data } })
+			navigate('/weather-app/weather', { state: { data } })
 		}
 	})
 

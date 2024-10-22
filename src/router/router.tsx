@@ -9,20 +9,20 @@ import { WeatherPage } from '../pages/weather/WeatherPage'
 
 export const router = createBrowserRouter([
 	{
-		path: '/',
+		path: '/weather-app',
 		element: <Layout />,
 		errorElement: <NotFound />,
 		children: [
 			{
-				path: '/',
+				path: '/weather-app',
 				element: <HomePage />
 			},
 			{
-				path: '/weather',
+				path: '/weather-app/weather',
 				element: <WeatherPage />
 			},
 			{
-				path: '/favorites',
+				path: '/weather-app/favorites',
 				element: <FavoritesPage />
 			}
 		]

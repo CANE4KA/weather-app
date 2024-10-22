@@ -23,7 +23,7 @@ export const Form = () => {
 	const { mutate, error, isPending } = useMutation({
 		mutationFn: (city: string) => WeatherService(city),
 		onSuccess: data => {
-			navigate('/weather', { state: { data } })
+			navigate('/weather-app/weather', { state: { data } })
 		}
 	})
 

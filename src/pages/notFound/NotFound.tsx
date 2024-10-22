@@ -8,7 +8,7 @@ export const NotFound = () => {
 			<h2 className={styles.oops}>Oops! Page not found</h2>
 			<h1 className={styles.code}>404</h1>
 			<p>We can't find the page you're looking for.</p>
-			<Link to='/'>Go back home</Link>
+			<Link to='/weather-app'>Go back home</Link>
 		</div>
 	)
 }
