@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import { FiSunrise, FiSunset } from 'react-icons/fi'
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
-import { useDispatch, useSelector } from 'react-redux'
 import { Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
 
 import styles from './WeatherCard.module.scss'
@@ -11,8 +10,7 @@ import { getCurrentTime } from '../../helpers/getCurrentTime'
 
 import { HourlyData, IWeather } from '../../models/IWeather'
 
-import { addAction, deleteAction } from '../../feature/cityList'
-import { RootState } from '../../store'
+import { useStore } from '../../store'
 
 interface IWeatherCard {
 	data: IWeather
@@ -20,8 +18,7 @@ interface IWeatherCard {
 }
 
 export const WeatherCard: FC<IWeatherCard> = ({ data, city }) => {
-	const dispatch = useDispatch()
-	const cityList = useSelector((state: RootState) => state.cityList.cities)
+	const { cities, addCity, deleteCity } = useStore()
 
 	const day: HourlyData[] = data.hour.map((item, index) => ({
 		...item,
@@ -33,17 +30,17 @@ export const WeatherCard: FC<IWeatherCard> = ({ data, city }) => {
 			<div className={styles.head}>
 				<h4>{getCurrentDay(data.date)}</h4>
 				<img src={data.day.condition.icon} alt='condition' />
-				{cityList.includes(city) ? (
+				{cities.includes(city) ? (
 					<MdFavorite
 						className={styles.favorite}
 						fontSize={25}
-						onClick={() => dispatch(deleteAction(city))}
+						onClick={() => deleteCity(city)}
 					/>
 				) : (
 					<MdFavoriteBorder
 						className={styles.favorite}
 						fontSize={25}
-						onClick={() => dispatch(addAction(city))}
+						onClick={() => addCity(city)}
 					/>
 				)}
 			</div>

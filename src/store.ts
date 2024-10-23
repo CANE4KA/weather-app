@@ -1,20 +1,26 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 
-import { loadFromLocalStorage, saveToLocalStorage } from './helpers/storage'
-
-import cityReducer, { CityState } from './feature/cityList'
-
-export interface RootState {
-	cityList: CityState
+interface IStore {
+	cities: string[]
+	addCity: Function
+	deleteCity: Function
 }
 
-export const store = configureStore({
-	reducer: {
-		cityList: cityReducer
-	},
-	preloadedState: loadFromLocalStorage() as RootState
-})
+export const useStore = create<IStore>()(
+	persist(
+		set => ({
+			cities: [],
+			addCity: (city: string) =>
+				set(state => ({
+					cities: [...state.cities, city]
+				})),
 
-store.subscribe(() => saveToLocalStorage(store.getState()))
-
-export type AppDispatch = typeof store.dispatch
+			deleteCity: (currentCity: string) =>
+				set(state => ({
+					cities: state.cities.filter(city => city !== currentCity)
+				}))
+		}),
+		{ name: 'city-store' }
+	)
+)
