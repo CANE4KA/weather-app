@@ -9,7 +9,7 @@
 		padding: 15px;
 		padding-right: 55px;
 		border-radius: 10px;
-		border: none;
+		border: 1px solid #000;
 		background-color: #d9d9d9;
 		outline: none;
 		width: 100%;
@@ -26,7 +26,7 @@
 		align-items: center;
 		background-color: #d9d9d9;
 		justify-content: center;
-		border: none;
+		border: 1px solid #000;
 	}
 
 	&__error {

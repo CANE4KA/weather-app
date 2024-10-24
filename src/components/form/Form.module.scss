@@ -9,7 +9,7 @@
 		padding: 15px;
 		padding-right: 55px;
 		border-radius: 10px;
-		border: none;
+		border: 1px solid #000;
 		background-color: #d9d9d9;
 		outline: none;
 		width: 100%;
@@ -22,7 +22,7 @@
 		height: 35px;
 		display: flex;
 		align-items: center;
-		background-color: #d9d9d9;
+		background-color: transparent;
 		justify-content: center;
 		border: none;
 		position: absolute;
