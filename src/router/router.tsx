@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import { Layout } from '../components/layout/Layout'
 
 import { FavoritesPage } from '../pages/favorites/FavoritesPage'
+import { FeedbackForm } from '../pages/feedbackForm/FeedbackForm'
 import { HomePage } from '../pages/home/HomePage'
 import { NotFound } from '../pages/notFound/NotFound'
 import { WeatherPage } from '../pages/weather/WeatherPage'
@@ -15,18 +16,19 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				path: '/weather-app',
-				errorElement: <NotFound />,
 				element: <HomePage />
 			},
 			{
 				path: '/weather-app/weather',
-				errorElement: <NotFound />,
 				element: <WeatherPage />
 			},
 			{
 				path: '/weather-app/favorites',
-				errorElement: <NotFound />,
 				element: <FavoritesPage />
+			},
+			{
+				path: '/weather-app/feedback-form',
+				element: <FeedbackForm />
 			}
 		]
 	},

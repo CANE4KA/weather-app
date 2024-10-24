@@ -1,4 +1,4 @@
-import { $axios } from '../api'
+import { $axios } from '../api/weather'
 
 export const WeatherService = async (city: string) => {
 	const key = import.meta.env.VITE_APP_API_KEY

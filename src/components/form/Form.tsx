@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { IoSend } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom'
 
 import styles from './Form.module.scss'
@@ -46,7 +47,9 @@ export const Form = () => {
 						})}
 					/>
 
-					<button className={styles.form__button}></button>
+					<button className={styles.form__button} aria-label='submit'>
+						<IoSend fontSize={25} />
+					</button>
 				</>
 			)}
 			{errors.city && (

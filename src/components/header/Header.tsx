@@ -13,7 +13,11 @@ export const Header = () => {
 				Автор
 			</Link>
 			{/* TODO: Добавить картинку */}
-			<Link to='/weather-app/' className={styles.header__logo}></Link>
+			<Link
+				to='/weather-app/'
+				className={styles.header__logo}
+				aria-label='logo'
+			></Link>
 			<Link to='/weather-app/favorites' className={styles.header__link}>
 				Избранное
 			</Link>

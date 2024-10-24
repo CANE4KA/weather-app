@@ -6,9 +6,15 @@
 }
 
 .slider {
-	max-width: 350px;
+	width: 350px;
 }
 
 .title {
 	margin: 40px 0 70px 0;
+}
+
+@media (width < 430px) {
+	.slider {
+		width: 300px;
+	}
 }
