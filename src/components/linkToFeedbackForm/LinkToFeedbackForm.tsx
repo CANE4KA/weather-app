@@ -5,7 +5,11 @@ import styles from './LinkToFeedBackForm.module.scss'
 
 export const LinkToFeedbackForm = () => {
 	return (
-		<Link className={styles.question} to='/weather-app/feedback-form'>
+		<Link
+			className={styles.question}
+			to='/weather-app/feedback-form'
+			aria-label='feedback'
+		>
 			<GoQuestion fontSize={40} />
 		</Link>
 	)

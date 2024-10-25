@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 
 import style from './FavoritesItem.module.scss'
 
+import { saveToLocalStorage } from '../../helpers/storage'
+
 import { WeatherService } from '../../services/weather.service'
 import { useStore } from '../../store'
 
@@ -19,7 +21,8 @@ export const FavoritesItem: FC<IFavoritesItem> = ({ city }) => {
 	const { mutate, isPending } = useMutation({
 		mutationFn: (city: string) => WeatherService(city),
 		onSuccess: data => {
-			navigate('/weather-app/weather', { state: { data } })
+			saveToLocalStorage(data)
+			navigate('/weather-app/weather')
 		}
 	})
 

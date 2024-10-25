@@ -5,6 +5,10 @@ import { useNavigate } from 'react-router-dom'
 
 import styles from './Form.module.scss'
 
+import { saveToLocalStorage } from '../../helpers/storage'
+
+import { IWeather } from '../../models/IWeather'
+
 import { WeatherService } from '../../services/weather.service'
 
 interface IInputs {
@@ -23,8 +27,9 @@ export const Form = () => {
 
 	const { mutate, error, isPending } = useMutation({
 		mutationFn: (city: string) => WeatherService(city),
-		onSuccess: data => {
-			navigate('/weather-app/weather', { state: { data } })
+		onSuccess: (data: IWeather) => {
+			saveToLocalStorage(data)
+			navigate('/weather-app/weather')
 		}
 	})
 

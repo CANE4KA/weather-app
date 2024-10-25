@@ -1,45 +1,28 @@
-import { useLocation } from 'react-router-dom'
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick-theme.css'
-import 'slick-carousel/slick/slick.css'
+import { useState } from 'react'
 
-import { SampleArrow } from '../../components/sampleArrow/SampleArrow'
-import { WeatherCard } from '../../components/weatherCard/WeatherCard'
+import { DayList } from '../../components/dayList/DayList'
+import { FavoritesAction } from '../../components/favoritesAction/FavoritesAction'
+import { HourList } from '../../components/hourList/HourList'
 
 import styles from './WeatherPage.module.scss'
 
-import { IWeather } from '../../models/IWeather'
+import { loadFromLocalStorage } from '../../helpers/storage'
 
 export const WeatherPage = () => {
-	const { state } = useLocation()
+	const [dayNumber, setDayNumber] = useState(0)
 
-	var settings = {
-		dots: true,
-		speed: 500,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		nextArrow: <SampleArrow color='red' />,
-		prevArrow: <SampleArrow color='red' />
-	}
+	const data = loadFromLocalStorage()
 
 	return (
 		<div className={styles.container}>
-			<h1 className={styles.title}>
-				Погода на 7 дней. {state.data.location.name}
-			</h1>
-			<div className={styles.slider}>
-				<Slider {...settings}>
-					{state.data.forecast.forecastday.map((day: IWeather) => {
-						return (
-							<WeatherCard
-								key={day.date}
-								data={day}
-								city={state.data.location.name}
-							/>
-						)
-					})}
-				</Slider>
-			</div>
+			<h1 className={styles.title}>Погода на 7 дней. {data.location.name}</h1>
+			<HourList data={data.forecast.forecastday} dayNumber={dayNumber} />
+			<FavoritesAction city={data.location.name} />
+			<DayList
+				data={data.forecast.forecastday}
+				dayNumber={dayNumber}
+				handleClick={setDayNumber}
+			/>
 		</div>
 	)
 }

@@ -6,13 +6,12 @@ export const Header = () => {
 	return (
 		<header className={styles.header}>
 			<Link
-				to='https://github.com/CANE4KA'
+				to='https://t.me/HUANANZHl'
 				target='_blank'
 				className={styles.header__link}
 			>
 				Автор
 			</Link>
-			{/* TODO: Добавить картинку */}
 			<Link
 				to='/weather-app/'
 				className={styles.header__logo}
