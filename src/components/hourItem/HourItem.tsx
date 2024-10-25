@@ -6,15 +6,15 @@ interface IHourItem {
 	temp: number
 	hourNumber: number
 	icon: string
-	alt: string
+	text: string
 }
 
-export const HourItem: FC<IHourItem> = ({ temp, hourNumber, icon, alt }) => {
+export const HourItem: FC<IHourItem> = ({ temp, hourNumber, icon, text }) => {
 	return (
 		<div className={styles.item}>
 			<span>{hourNumber}</span>
 			<span>{temp}</span>
-			<img width={25} src={icon} alt={alt} />
+			<img width={25} src={icon} alt={text} />
 		</div>
 	)
 }

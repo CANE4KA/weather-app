@@ -2,10 +2,12 @@ import { FC } from 'react'
 
 import styles from './HourList.module.scss'
 
+import { DailyForecast } from '../../models/IWeather'
+
 import { HourItem } from '../hourItem/HourItem'
 
 interface IHourList {
-	data: any
+	data: DailyForecast[]
 	dayNumber: number
 }
 

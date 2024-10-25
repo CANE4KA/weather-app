@@ -2,10 +2,12 @@ import { FC } from 'react'
 
 import styles from './DayList.module.scss'
 
+import { DailyForecast } from '../../models/IWeather'
+
 import { DayItem } from '../dayItem/DayItem'
 
 interface IDayList {
-	data: any
+	data: DailyForecast[]
 	handleClick: Function
 	dayNumber: number
 }

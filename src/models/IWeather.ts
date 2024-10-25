@@ -32,7 +32,6 @@ export interface IWeather {
 	date: string
 }
 
-// Новый интерфейс для структуры данных
 interface LocationInfo {
 	country: string
 	lat: number
@@ -68,4 +67,37 @@ export interface WeatherData {
 	location: LocationInfo
 	current: CurrentWeather
 	forecast: IForecast
+}
+
+export interface DailyForecast {
+	date: string
+	date_epoch: number
+	day: {
+		maxtemp_c: number
+		mintemp_c: number
+		avgtemp_c: number
+		condition: {
+			text: string
+			icon: string
+			code: number
+		}
+	}
+	astro: {
+		sunrise: string
+		sunset: string
+		moonrise: string
+		moonset: string
+		moon_phase: string
+	}
+	hour: Array<{
+		time: string
+		time_epoch: number
+		temp_c: number
+		temp_f: number
+		is_daytime: boolean
+		condition: {
+			text: string
+			icon: string
+		}
+	}>
 }
