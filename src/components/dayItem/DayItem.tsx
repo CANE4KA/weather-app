@@ -32,7 +32,7 @@ export const DayItem: FC<IDayItem> = ({
 			<p>{getCurrentDay(date)}</p>
 			<img width={25} src={icon} alt='icon' />
 			<p>
-				{minTemp} ➔ {maxTemp}
+				{minTemp}° ➔ {maxTemp}°
 			</p>
 		</div>
 	)

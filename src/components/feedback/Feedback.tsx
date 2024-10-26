@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import styles from './Feedback.module.scss'
 
 import { sendMessage } from '../../api/telegram'
+import { Input } from '../../ui/Input'
 
 interface IInputs {
 	email: string
@@ -29,28 +30,20 @@ export const Feedback = () => {
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 			<>
-				<input
-					className={styles.form__input}
-					placeholder='Введите вашу почту'
-					{...register('email', {
+				<Input
+					{...register<'email'>('email', {
 						required: { value: true, message: 'Это обязательное поле' }
 					})}
+					error={errors.email?.message}
+					placeholder='Ваша почта'
 				/>
-				{errors.email && (
-					<span className={styles.form__error}>{errors.email.message}</span>
-				)}
-
-				<input
-					className={styles.form__input}
-					placeholder='Введите предложение(я)'
-					{...register('text', {
+				<Input
+					{...register<'text'>('text', {
 						required: { value: true, message: 'Это обязательное поле' }
 					})}
+					error={errors.text?.message}
+					placeholder='Ваше обращение'
 				/>
-				{errors.text && (
-					<span className={styles.form__error}>{errors.text.message}</span>
-				)}
-
 				<button className={styles.form__button} aria-label='submit'>
 					Отправить
 				</button>

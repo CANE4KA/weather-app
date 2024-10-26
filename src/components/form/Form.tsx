@@ -10,6 +10,7 @@ import { saveToLocalStorage } from '../../helpers/storage'
 import { IWeather } from '../../models/IWeather'
 
 import { WeatherService } from '../../services/weather.service'
+import { Input } from '../../ui/Input'
 
 interface IInputs {
 	city: string
@@ -41,15 +42,15 @@ export const Form = () => {
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 			{isPending ? (
-				<span>Loading...</span>
+				<div className={styles.loader}></div>
 			) : (
 				<>
-					<input
-						className={styles.form__input}
-						placeholder='Введите город'
-						{...register('city', {
+					<Input
+						{...register<'city'>('city', {
 							required: { value: true, message: 'Это обязательное поле' }
 						})}
+						error={errors.city?.message}
+						placeholder='Введите город'
 					/>
 
 					<button className={styles.form__button} aria-label='submit'>
@@ -57,13 +58,8 @@ export const Form = () => {
 					</button>
 				</>
 			)}
-			{errors.city && (
-				<span className={styles.form__error}>{errors.city.message}</span>
-			)}
 			{error && (
-				<span className={styles.form__error}>
-					Проверьте верно ли указан город
-				</span>
+				<p className={styles.form__error}>Проверьте верно ли указан город</p>
 			)}
 		</form>
 	)

@@ -1,14 +1,15 @@
 .item {
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
-	width: 100%;
-	background-color: red;
+	background-color: transparent;
 	border-radius: 10px;
 	margin-bottom: 10px;
-	padding: 10px;
+	padding: 5px 10px;
 	cursor: pointer;
+	width: 100%;
 }
 
 .active {
-	background-color: tomato;
+	background-color: rgba(48, 79, 255, 0.35);
 }

@@ -1,11 +1,24 @@
 .hour_container {
 	width: 300px;
-	overflow-x: scroll;
 	display: flex;
 	align-items: center;
 	gap: 3px;
-	background-color: red;
-	border-radius: 10px;
-	padding: 5px;
+	overflow-x: scroll;
+	scrollbar-color: rgba(48, 79, 255, 0.35) transparent;
+}
+
+.container {
+	padding: 10px;
 	margin-bottom: 25px;
+	background-color: rgba(45, 55, 92, 0.4);
+	border-radius: 10px;
+	text-align: left;
+}
+
+.hr {
+	margin: 5px 0;
+	border: none;
+	height: 1px;
+	background-color: #d9dbe1;
+	width: 100%;
 }

@@ -5,28 +5,22 @@
 	align-items: center;
 	flex-grow: 1;
 
-	&__input {
-		padding: 15px;
-		padding-right: 55px;
-		border-radius: 10px;
-		border: 1px solid #000;
-		background-color: #d9d9d9;
-		outline: none;
-		width: 100%;
-		margin-top: 20px;
-	}
-
 	&__button {
 		cursor: pointer;
 		width: 100%;
 		padding: 15px;
-		margin-top: 20px;
 		border-radius: 10px;
 		display: flex;
 		align-items: center;
-		background-color: #d9d9d9;
+		margin-top: 20px;
+		background-color: rgba(18, 26, 66, 0.3);
 		justify-content: center;
-		border: 1px solid #000;
+		border: 1px solid rgb(18, 26, 66);
+		color: rgb(18, 26, 66);
+
+		&:hover {
+			background-color: rgba(18, 26, 66, 0.1);
+		}
 	}
 
 	&__error {

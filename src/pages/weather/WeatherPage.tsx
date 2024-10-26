@@ -15,7 +15,7 @@ export const WeatherPage = () => {
 
 	return (
 		<div className={styles.container}>
-			<h1 className={styles.title}>Погода на 7 дней. {data.location.name}</h1>
+			<h1 className={styles.title}>{data.location.name}</h1>
 			<HourList data={data.forecast.forecastday} dayNumber={dayNumber} />
 			<FavoritesAction city={data.location.name} />
 			<DayList

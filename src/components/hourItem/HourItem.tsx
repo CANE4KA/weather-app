@@ -12,8 +12,8 @@ interface IHourItem {
 export const HourItem: FC<IHourItem> = ({ temp, hourNumber, icon, text }) => {
 	return (
 		<div className={styles.item}>
-			<span>{hourNumber}</span>
-			<span>{temp}</span>
+			<p>{hourNumber}</p>
+			<p>{temp}°</p>
 			<img width={25} src={icon} alt={text} />
 		</div>
 	)
